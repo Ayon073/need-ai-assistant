@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8fc" />
+    <meta
+      name="description"
+      content="Need — আপনার দৈনন্দিন কাজ ও লেখালেখির AI সহকারী।"
+    />
+    <title>Need — আপনার AI সহকারী</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="প্রধান মেনু">
+        <a class="brand" href="/" aria-label="Need হোম">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span>Need</span>
+        </a>
+
+        <button class="new-chat-button" id="new-chat" type="button">
+          <span aria-hidden="true">＋</span>
+          নতুন চ্যাট
+          <span class="shortcut">⌘ K</span>
+        </button>
+
+        <div class="sidebar-label">আপনার সহকারী</div>
+        <nav class="mode-list" aria-label="সহকারীর ধরন">
+          <button class="mode-button active" data-mode="daily" type="button">
+            <span class="mode-icon daily-icon" aria-hidden="true">✳</span>
+            <span>
+              <strong>রোজকার জীবন</strong>
+              <small>প্রতিদিনের কাজে সাহায্য</small>
+            </span>
+            <span class="mode-check" aria-hidden="true">✓</span>
+          </button>
+          <button class="mode-button" data-mode="writing" type="button">
+            <span class="mode-icon writing-icon" aria-hidden="true">✎</span>
+            <span>
+              <strong>লেখালেখি</strong>
+              <small>লিখুন, গুছান, অনুবাদ করুন</small>
+            </span>
+            <span class="mode-check" aria-hidden="true">✓</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="note-icon" aria-hidden="true">✦</span>
+          <p><strong>আরও আসছে</strong><br />ওয়েব সার্চ, ক্যালেন্ডার ও আরও টুল</p>
+          <span class="soon-tag">শীঘ্রই</span>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="avatar" aria-hidden="true">N</span>
+          <span class="footer-copy"><strong>Need Assistant</strong><small>আপনার ব্যক্তিগত সহকারী</small></span>
+          <span class="footer-status" aria-label="প্রস্তুত"></span>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark" aria-hidden="true">N</span> Need</div>
+          <div class="mode-indicator"><span class="live-dot"></span> আপনার AI সহকারী</div>
+          <button class="topbar-button" id="clear-chat" type="button" aria-label="চ্যাট মুছুন" title="চ্যাট মুছুন">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6m4-6v6M5.5 7l1 13h11l1-13M9 7V4h6v3" /></svg>
+          </button>
+        </header>
+
+        <section class="chat-area" aria-live="polite">
+          <div class="welcome" id="welcome">
+            <div class="welcome-orbit" aria-hidden="true">
+              <span class="orbit-star star-one">✦</span>
+              <span class="orbit-star star-two">✧</span>
+              <span class="welcome-mark">N</span>
+            </div>
+            <div class="eyebrow"><span></span> আপনার নতুন সহকারী</div>
+            <h1>হ্যালো! আমি <span>Need</span></h1>
+            <p class="welcome-copy">আপনার রোজকার জীবন সহজ করতে, কিংবা মনের কথাগুলো<br class="desktop-break" /> সুন্দর করে লিখতে—আমি আছি পাশে।</p>
+
+            <div class="suggestion-grid" id="suggestions">
+              <button class="suggestion-card" data-prompt="আজকের জন্য একটা সহজ, বাস্তবসম্মত কাজের পরিকল্পনা বানিয়ে দাও।">
+                <span class="suggestion-icon plan-icon" aria-hidden="true">◷</span>
+                <span><strong>দিনটা গুছিয়ে দাও</strong><small>আজকের কাজের পরিকল্পনা বানাও</small></span>
+                <span class="suggestion-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="suggestion-card" data-prompt="একটা বন্ধুসুলভ, সংক্ষিপ্ত ছুটির আবেদন ইমেইল লিখে দাও।">
+                <span class="suggestion-icon email-icon" aria-hidden="true">✉</span>
+                <span><strong>একটা ইমেইল লিখি</strong><small>ভাবনাকে সুন্দর লেখায় বদলাও</small></span>
+                <span class="suggestion-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="suggestion-card" data-prompt="প্রতিদিন ৩০ মিনিটে ইংরেজি শেখার জন্য এক সপ্তাহের সহজ রুটিন দাও।">
+                <span class="suggestion-icon learn-icon" aria-hidden="true">⌘</span>
+                <span><strong>নতুন কিছু শিখি</strong><small>সহজ করে বুঝিয়ে বলো</small></span>
+                <span class="suggestion-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="suggestion-card" data-prompt="এই সপ্তাহের জন্য সহজ, স্বাস্থ্যকর ও সাশ্রয়ী খাবারের তালিকা বানাও।">
+                <span class="suggestion-icon idea-icon" aria-hidden="true">✳</span>
+                <span><strong>একটু আইডিয়া চাই</strong><small>প্রতিদিনের নতুন অনুপ্রেরণা</small></span>
+                <span class="suggestion-arrow" aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+          <div class="message-list" id="messages"></div>
+        </section>
+
+        <div class="composer-wrap">
+          <div class="composer" id="composer">
+            <textarea id="message-input" rows="1" maxlength="10000" aria-label="আপনার বার্তা" placeholder="Need-কে কিছু জিজ্ঞেস করুন..."></textarea>
+            <div class="composer-bottom">
+              <div class="composer-hint"><span class="sparkle">✦</span><span id="mode-hint">রোজকার জীবনে সাহায্য করতে প্রস্তুত</span></div>
+              <button class="send-button" id="send-button" type="button" aria-label="পাঠান">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </button>
+            </div>
+          </div>
+          <p class="disclaimer">Need ভুল করতে পারে—গুরুত্বপূর্ণ তথ্য যাচাই করে নিন।</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
